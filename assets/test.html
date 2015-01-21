@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Highcharts Example</title>
+
+    <script type="text/javascript" src="file:///android_asset/jquery.min.js"></script>
+    <script type="text/javascript">
+        function plot(data2,  data3) {
+        var chart = $('#container').highcharts(),
+			//inCome = data,
+			//lenObj = inCome.length,
+			series1 = [],
+			series2 = [];
+			//chart.series[0].name('Year 1800','Year 1900','Year 2008');
+			//chart.series[0].setData([[107, 31, 635, 203, 2],[133, 156, 947, 408, 6],[973, 914, 4054, 732, 34]]);
+			
+			var d =[],mname = [];
+			d[0] = [107, 231, 635, 203, 2];
+			d[1] = [133, 156, 947, 408, 6];
+			d[2] = [973, 914, 4054, 732, 34];
+			
+			//chart.series.push(newSeriesData);
+			//chart.series.push(newSeriesData2);
+			//chart.series.push(newSeriesData3);
+			//chart.series[0].setData([1, 2, 3, 4, 34],true);
+			//chart.series[1].setData([1, 2, 3, 4, 34],true);
+			mname[0] = 'A';
+			mname[1] = 'B';
+			mname[2] = 'C';
+			//for(var i=0;i<3;i++){
+			//	chart.series[i].setData(d[i]);
+				//chart.series[i].name(name[i]);
+			//}
+			/*
+			chart.series[0].setData([{
+				name: 'Year 1800',
+				data: [107, 31, 635, 203, 2]
+			}, {
+				name: 'Year 1900',
+				data: [133, 156, 947, 408, 6]
+			}, {
+				name: 'Year 2008',
+				data: [973, 914, 4054, 732, 34]
+			}]);
+			*/
+			
+			//chart.series[0].setData(inCome, true);
+			var max_len = 0;
+			var round = [];
+			for(var i=0;i<data2.length;i++){
+				if(data2[i].length>max_len)max_len = data2[i].length;
+			}
+			for(var i=0;i<max_len;i++)
+				round[i] = (i+1)+' lap';
+			chart.xAxis[0].setCategories(round,true);
+			var series = {};
+			for(var i=0;i<data3.length;i++){
+				series[i] = {
+					name : data3[i],
+					data : []
+				};
+				series[i].data = data2[i];
+				chart.addSeries(series[i],i===(data3.length-1));
+			}
+			
+        }
+
+		/*
+        $(function () {
+        $('#container').highcharts({
+        chart: {
+        type: 'bar'
+        },
+        title: {
+        text: 'Count Max'
+        },
+        subtitle: {
+        text: 'subtitle'
+        },
+        xAxis: {
+        categories: [],
+        title: {
+        text: null
+        }
+        },
+        yAxis: {
+        min: 0,
+        title: {
+        text: 'y axis',
+        align: 'high'
+        },
+        labels: {
+        overflow: 'justify'
+        }
+        },
+        tooltip: {
+        valueSuffix: ' millions'
+        },
+        plotOptions: {
+        bar: {
+        dataLabels: {
+        enabled: true
+        }
+        }
+        },
+        legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 100,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: '#FFFFFF',
+        shadow: true
+        },
+        credits: {
+        enabled: false
+        },
+       series : [{
+        name : 'SerieName',
+        data : []
+        }]
+        });
+        });*/
+	$(function () {
+		$('#container').highcharts({
+			chart: {
+				type: 'bar'
+			},
+			title: {
+				text: 'Time Recording'
+			},
+			subtitle: {
+				//text: 'Source: Wikipedia.org'
+			},
+			xAxis: {
+				//categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+				categories:[],
+				title: {
+					text: null
+				}
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: ' Second',
+					align: 'high'
+				},
+				labels: {
+					overflow: 'justify'
+				}
+			},
+			tooltip: {
+				valueSuffix: ' sec'
+			},
+			plotOptions: {
+				bar: {
+					dataLabels: {
+						enabled: true
+					},
+					events: {
+						legendItemClick: function () {
+							return false; 
+						}
+					}
+				}
+			},
+			exporting: {
+					 enabled: false
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'top',
+				x: -40,
+				y: 100,
+				floating: true,
+				borderWidth: 1,
+				backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+				shadow: true
+			},
+			credits: {
+				enabled: false
+			},
+			series: []
+		});
+	});
+	/*
+	series: [{
+				//name: 'Year 1800',
+				data: [107, 31, 635, 203, 2]
+			}, {
+				//name: 'Year 1900',
+				data: [133, 156, 947, 408, 6]
+			}, {
+				//name: 'Year 2008',
+				data: [973, 914, 4054, 732, 34]
+			}]
+	*/
+    </script>
+</head>
+<body>
+<script src="file:///android_asset/highcharts.js"></script>
+<script src="file:///android_asset/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+</body>
+</html>

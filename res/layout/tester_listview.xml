@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:clickable="false" />
+
+    <TextView
+        android:id="@+id/tester_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:focusableInTouchMode="false"
+		android:clickable="false"
+		android:focusable="false"
+		android:maxLength="10"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:id="@+id/clock_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false">
+              
+    </LinearLayout>
+    <!--
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chronometer"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+	-->  
+    <TextView
+        android:id="@+id/extra_sec_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" 
+        android:focusableInTouchMode="false"
+		android:clickable="false"
+		android:focusable="false"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+</LinearLayout>
